@@ -7,25 +7,30 @@ import (
 )
 
 func main() {
-	apiKey := "YOUR_TOKEN"
-	projectName := "bank-api"
+	apiToken := "YOUR_TOKEN"
+	projectName := "ecommerce-monitor"
 
-	// l := logsnag.NewLogsnag(&logsnag.NewLogParams{Token: apiKey, Project: projectName})
-	l := logsnag.NewLogsnag(projectName, &logsnag.APIClient{Token: apiKey})
-	resp, err := l.Publish(
-		"user-create",
-		"Uchenna created a new account",
+	l := logsnag.NewLogsnag(projectName, &logsnag.APIClient{Token: apiToken})
+
+	result, err := l.Publish(
+		"waitlist",
+		"User Joined",
 		logsnag.IPublishPayloadOptions{
-			Description: "A new user has been created",
+			Icon: "🎉",
+			Tags: map[string]interface{}{
+				"name":  "john doe",
+				"email": "johndoe@example.com",
+			},
+			Description: "A new user has joined the waitlist",
 			Notify:      true,
 		},
 	)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Sprintln("event published:  %/s", resp)
+	fmt.Sprintln("event published:  %/s", result)
 
-	insights, err := l.Insight("user-create", "New Account", logsnag.InsightPayloadOptions{})
+	insights, err := l.Insight("User Count", "100", logsnag.InsightPayloadOptions{Icon: "👨"})
 	if err != nil {
 		fmt.Println(err)
 	}
