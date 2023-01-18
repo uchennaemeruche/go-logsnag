@@ -74,6 +74,7 @@ func (l *logsnagConfig) Publish(channel string, event string, options IPublishPa
 		Parser:      options.Parser,
 	}
 
+	fmt.Println(payload)
 	jsonBody, _ := json.Marshal(payload)
 
 	req, err := http.NewRequestWithContext(context.Background(), http.MethodPost, endpoint, bytes.NewBuffer(jsonBody))
