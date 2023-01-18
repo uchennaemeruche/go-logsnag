@@ -47,7 +47,6 @@ type logsnagConfig struct {
 }
 
 type Logsnag interface {
-	// Publish(channel string, event string, description string, notify bool) (LogResponse, error)
 	Publish(channel string, event string, options IPublishPayloadOptions) (LogResponse, error)
 	Insight(title string, value interface{}, options InsightPayloadOptions) (resp LogResponse, err error)
 }
