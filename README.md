@@ -2,6 +2,7 @@
 
 Get notifications and track your project events. Please refer to the [docs](https://docs.logsnag.com/) to learn more.
 
+[![Test Package](https://github.com/uchennaemeruche/go-logsnag/actions/workflows/test.yaml/badge.svg)](https://github.com/uchennaemeruche/go-logsnag/actions/workflows/test.yaml)
 
 ## Installation
 
