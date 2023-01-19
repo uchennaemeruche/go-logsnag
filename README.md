@@ -1,6 +1,6 @@
 # Logsnag's Golang implementation
 
-Get notifications and track your project events. Please refer to the [docs](https://docs.logsnag.com/) docs to learn more.
+Get notifications and track your project events. Please refer to the [docs](https://docs.logsnag.com/) to learn more.
 
 
 ## Installation
@@ -28,7 +28,10 @@ go get github.com/uchennaemeruche/go-logsnag
 		"Uchenna created a new account",
 		logsnag.IPublishPayloadOptions{
 			Icon: "🎉",
-			// Tags: ,
+			Tags: map[string]interface{}{
+				"name":  "john doe",
+				"email": "johndoe@example.com",
+			},
 			Description: "A new user has been created",
 			Notify:      true,
 		},
